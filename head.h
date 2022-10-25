@@ -23,8 +23,10 @@
 //数据大小
 #define BUFFER_SIZE 1024
 #define DATA_SIZE 512
+#define PKT_MAX_RXMT 3
+#define PKT_RCV_TIMEOUT 3*1000
 //函数声明
 int write_request(int mode, const char* filename, char* buffer, SOCKET serversock, sockaddr_in addr, int addrLen);
-int receive(char* buffer, SOCKET serversock, sockaddr_in addr, int addrlen);
+int receive(char* buffer, SOCKET serversock, sockaddr_in &addr, int addrlen);
 void upload(int mode, const char* filename, char* buffer, SOCKET serversock, sockaddr_in addr, int addrlen);
 int send_data(SOCKET serversock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer, char* data, int data_size, unsigned short block_num);

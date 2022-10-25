@@ -1,6 +1,7 @@
 #include"head.h"
 
 void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
+	sockaddr_in serveraddr = { 0 };
 	int result;//记录返回值
 	int data_size;//每次成功从文件读取的字节数
 	int block_num = 0;
@@ -14,20 +15,21 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 	}
 	write_request(mode, filename, buffer, sock, addr, addrlen);
 	while (1) {
-			result = receive(recv_buffer, sock, addr,addrlen);
-		if (result==1) {
-			block_num += recv_buffer[2];
-			block_num = (block_num << 8) + recv_buffer[3];
-			memset(data, 0, DATA_SIZE);
-			data_size= fread(data, 1, DATA_SIZE, fp);
-			printf("读取文件数据size:%d\n", data_size);
-			send_data(sock,addr,addrlen,fp, buffer,data, data_size, block_num+1);
-		}
+			result = receive(recv_buffer, sock, serveraddr,addrlen);
+			if (result == 1) {
+				block_num += recv_buffer[2];
+				block_num = (block_num << 8) + recv_buffer[3];
+				memset(data, 0, DATA_SIZE);
+				data_size = fread(data, 1, DATA_SIZE, fp);
+				printf("读取文件数据size:%d\n", data_size);
+				send_data(sock, serveraddr, addrlen, fp, buffer, data, data_size, block_num + 1);
+			}
+			else return;
 	}
 }
 
 int write_request(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
-	int send_size = 0;//发送请求包数据大小
+	int send_size = 0;//请求包数据大小
 	int result;//记录返回值
 	memset(buffer, 0, sizeof(buffer));//初始化报文
 	buffer[++send_size] = WRQ;//operation code头部
@@ -55,31 +57,30 @@ int write_request(int mode, const char* filename, char* buffer, SOCKET sock, soc
 	return result;
 }
 
-int receive(char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
-	memset(buffer, 0, sizeof(buffer));
-	int len = addrlen;
-	printf("...等待接收...\n");
-	int result = recvfrom(sock, buffer, 4, 0, (struct sockaddr*)&addr, &len);
-	if (result == SOCKET_ERROR) {
-		printf("接收数据失败\n");
-		return -1;
-	}
-	else if (result < 4) {
-		printf("bad packet\n");
-	}
-	else {
-		if (buffer[1] == ACK) {
+int receive(char* recv_buffer, SOCKET sock, sockaddr_in &addr, int addrlen) {
+	memset(recv_buffer, 0, sizeof(recv_buffer));
+	int wait_time;
+	for (wait_time = 0; wait_time < PKT_RCV_TIMEOUT; wait_time += 20) {
+		int result = recvfrom(sock, recv_buffer, 4, 0, (struct sockaddr*)&addr, (int*)&addrlen);
+		if (result>0&&result<4) {
+			printf("bad packet\n");
+		}
+		else if (result >= 4) {
+			if (recv_buffer[1] == ERROR_CODE) {
+				printf("ERROR!\n");
+				return -2;
+			}
 			printf("接收报文成功");
 			printf("recv:%dbytes ", result);
-			printf("blocknum:%d\n", buffer[3]);
+			printf("blocknum:%d\n", recv_buffer[3]);
 			return 1;
 		}
-		else if (buffer[1] == ERROR) {
-			printf("ERROR!\n");
-			return -2;
-		}
+		Sleep(20);
 	}
-	return 0;
+	if (wait_time >= PKT_RCV_TIMEOUT) {
+		printf("超时\n");
+		return 0;
+	}
 }
 
 int send_data(SOCKET sock, sockaddr_in addr, int addrlen,FILE* fp, char* buffer,char* data, int data_size, unsigned short block_num) {

@@ -4,8 +4,8 @@ int main() {
 	char buffer[BUFFER_SIZE];
 	//初始化socket
 	WSADATA wsaData;
-	int Result = WSAStartup(MAKEWORD(2, 2), &wsaData);
-	if (Result != 0)
+	int Result = WSAStartup(0x0101, &wsaData);
+	if (Result)
 	{
 		printf("WSAStartup failed with error: %d", Result);
 		return 0;
@@ -31,6 +31,9 @@ int main() {
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_port = htons(clientport);
 	client_addr.sin_addr.S_un.S_addr = inet_addr(clientip);
+	unsigned long Opt = 1;
+	ioctlsocket(tftpsock, FIONBIO, &Opt);
+	//绑定客户端ip和端口
 	Result = bind(tftpsock, (LPSOCKADDR)&client_addr, sizeof(client_addr));
 	if (Result == SOCKET_ERROR)
 	{
@@ -42,8 +45,8 @@ int main() {
 //	printf("读取文件名失败");
 //	return 0;
 //}
-//绑定客户端ip和端口
-	upload(2, "test.txt", buffer, tftpsock, server_addr, sizeof(server_addr));
+
+	upload(1, "test.txt", buffer, tftpsock, server_addr, sizeof(sockaddr_in));
 	
 	
 }
