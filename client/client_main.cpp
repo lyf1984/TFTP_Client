@@ -1,7 +1,17 @@
 #include"head.h"
+FILE* log_file;//日志文件
+char log[512];//写入日志数据
+time_t t;//保存时间
 int main() {
-	char file_path[128];
-	char buffer[BUFFER_SIZE];
+	//初始化日志文件
+	log_file = fopen("log.txt", "w+");
+	printf("%s", asctime(localtime(&(t=time(NULL)))));
+	if (log_file == NULL) {
+		printf("创建日志文件失败！\n");
+		return 0;
+	}
+	char file_path[128];//文件名
+	char buffer[BUFFER_SIZE];//保存发送的数据
 	//初始化socket
 	WSADATA wsaData;
 	int Result = WSAStartup(0x0101, &wsaData);
@@ -31,6 +41,7 @@ int main() {
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_port = htons(clientport);
 	client_addr.sin_addr.S_un.S_addr = inet_addr(clientip);
+	//设置为非阻塞模式
 	unsigned long Opt = 1;
 	ioctlsocket(client_sock, FIONBIO, &Opt);
 	//绑定客户端ip和端口

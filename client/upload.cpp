@@ -1,4 +1,7 @@
 #include"head.h"
+extern FILE* log_file;
+extern char log[512];
+extern time_t t;
 void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
 	sockaddr_in serveraddr = { 0 };
 	int max_send = 0;//超时重传次数
@@ -16,7 +19,7 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 	}
 	write_request(mode, filename, buffer, sock, addr, addrlen);
 	while (1) {
-		result = receive(recv_buffer, sock, serveraddr, addrlen);
+		result = receive_ACK(recv_buffer, sock, serveraddr, addrlen);
 		if (result == 1) {
 			max_send = 0;
 			if (send_flag) {
@@ -48,7 +51,7 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 		else return;
 	}
 }
-
+//发送写请求
 int write_request(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
 	int send_size = 0;//请求包数据大小
 	int result;//记录返回值
@@ -77,8 +80,8 @@ int write_request(int mode, const char* filename, char* buffer, SOCKET sock, soc
 		printf("发送写请求成功send:%dbytes\n", result);
 	return result;
 }
-
-int receive(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) {
+//接收数据
+int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) {
 	memset(recv_buffer, 0, sizeof(recv_buffer));
 	struct timeval tv;
 	fd_set readfds;

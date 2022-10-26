@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<time.h>
 #include<WinSock2.h>
 #include<Windows.h>
 #pragma comment(lib,"Ws2_32.lib")
@@ -27,6 +28,6 @@
 #define MAX_RETRANSMISSION 3
 //º¯ÊýÉùÃ÷
 int write_request(int mode, const char* filename, char* buffer, SOCKET serversock, sockaddr_in addr, int addrLen);
-int receive(char* buffer, SOCKET serversock, sockaddr_in &addr, int addrlen);
+int receive_ACK(char* buffer, SOCKET serversock, sockaddr_in &addr, int addrlen);
 void upload(int mode, const char* filename, char* buffer, SOCKET serversock, sockaddr_in addr, int addrlen);
 int send_data(SOCKET serversock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer, char* data, int data_size, unsigned short block_num);
