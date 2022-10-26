@@ -114,7 +114,7 @@ int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) 
 		return -1;
 	}
 }
-
+//发送文件数据
 int send_data(SOCKET sock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer, char* data, int data_size, unsigned short block_num) {
 	int result;
 	int send_size = 0;
