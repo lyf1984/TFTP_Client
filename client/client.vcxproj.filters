@@ -27,9 +27,6 @@
     <ClCompile Include="download.cpp">
       <Filter>源文件\client</Filter>
     </ClCompile>
-    <ClCompile Include="log.cpp">
-      <Filter>源文件\client</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">

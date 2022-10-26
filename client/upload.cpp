@@ -1,6 +1,5 @@
 #include"head.h"
 extern FILE* log_file;
-extern char log[512];
 extern time_t t;
 void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
 	sockaddr_in serveraddr = { 0 };
@@ -111,6 +110,7 @@ int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) 
 	}
 	if (wait_time >= TIME_OUT) {
 		printf("接收等待超时\n");
+		fprintf(log_file, "ERROR:等待接收超时 %s", asctime(localtime(&(t = time(NULL)))));
 		return -1;
 	}
 }

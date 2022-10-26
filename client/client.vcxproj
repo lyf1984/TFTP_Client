@@ -143,7 +143,6 @@
     <ClCompile Include="client_main.cpp" />
     <ClCompile Include="upload.cpp" />
     <ClCompile Include="download.cpp" />
-    <ClCompile Include="log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h" />
