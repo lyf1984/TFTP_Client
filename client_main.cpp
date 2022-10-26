@@ -11,9 +11,9 @@ int main() {
 		return 0;
 	}
 	//创建套接字
-	SOCKET tftpsock;
-	tftpsock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-	if (tftpsock == INVALID_SOCKET) {
+	SOCKET client_sock;
+	client_sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	if (client_sock == INVALID_SOCKET) {
 		printf("创建套接字失败\n");
 		return 0;
 	}
@@ -32,9 +32,9 @@ int main() {
 	client_addr.sin_port = htons(clientport);
 	client_addr.sin_addr.S_un.S_addr = inet_addr(clientip);
 	unsigned long Opt = 1;
-	ioctlsocket(tftpsock, FIONBIO, &Opt);
+	ioctlsocket(client_sock, FIONBIO, &Opt);
 	//绑定客户端ip和端口
-	Result = bind(tftpsock, (LPSOCKADDR)&client_addr, sizeof(client_addr));
+	Result = bind(client_sock, (LPSOCKADDR)&client_addr, sizeof(client_addr));
 	if (Result == SOCKET_ERROR)
 	{
 		// 绑定失败
@@ -46,7 +46,7 @@ int main() {
 //	return 0;
 //}
 
-	upload(1, "test.txt", buffer, tftpsock, server_addr, sizeof(sockaddr_in));
+	upload(1, "test.txt", buffer, client_sock, server_addr, sizeof(sockaddr_in));
 	
 	
 }
