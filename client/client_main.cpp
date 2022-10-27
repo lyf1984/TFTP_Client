@@ -67,7 +67,8 @@ int main() {
 //	return 0;
 //}
 
-	upload(1, "test.txt", buffer, client_sock, server_addr, sizeof(sockaddr_in));
+	//upload(1, "test.txt", buffer, client_sock, server_addr, sizeof(sockaddr_in));
+	download(1, "aaaa.txt", buffer, client_sock, server_addr, sizeof(sockaddr_in));
 	
 	fclose(log_file);
 }

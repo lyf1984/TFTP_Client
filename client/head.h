@@ -26,8 +26,13 @@
 #define DATA_SIZE 512
 #define TIME_OUT 2
 #define MAX_RETRANSMISSION 3
-//º¯ÊýÉùÃ÷
+//upload
 int write_request(int mode, const char* filename, char* buffer, SOCKET serversock, sockaddr_in addr, int addrLen);
 int receive_ACK(char* buffer, SOCKET serversock, sockaddr_in &addr, int addrlen);
 void upload(int mode, const char* filename, char* buffer, SOCKET serversock, sockaddr_in addr, int addrlen);
 int send_data(SOCKET serversock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer, char* data, int data_size, unsigned short block_num);
+//download
+void download(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen);
+int read_request(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen);
+int receive_data(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen);
+int send_ACK(SOCKET sock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer, char* data, int data_size, unsigned short block_num);

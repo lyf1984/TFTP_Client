@@ -26,6 +26,7 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 				printf("传输完毕\n");
 				return;
 			}
+			block_num = 0;
 			block_num += recv_buffer[2];
 			block_num = (block_num << 8) + recv_buffer[3];
 			memset(data, 0, DATA_SIZE);
@@ -91,7 +92,7 @@ int write_request(int mode, const char* filename, char* buffer, SOCKET sock, soc
 	}
 	return result;
 }
-//接收数据
+//接收ACK包
 int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) {
 	memset(recv_buffer, 0, sizeof(recv_buffer));
 	struct timeval tv;
@@ -113,13 +114,13 @@ int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) 
 		else if (result >= 4) {
 			if (recv_buffer[1] == ERROR_CODE) {
 				printf("ERROR!\n");
-				fprintf(log_file, "接收到错误包 错误码:%d %s %s", recv_buffer[3], recv_buffer+4,asctime(localtime(&(t = time(NULL)))));
+				fprintf(log_file, "ERROR:接收到错误包 错误码:%d 错误信息%s %s", recv_buffer[3], recv_buffer+4,asctime(localtime(&(t = time(NULL)))));
 				return -2;
 			}
 			printf("接收报文成功");
 			printf("recv:%dbytes ", result);
 			printf("blocknum:%d\n", recv_buffer[3]);
-			fprintf(log_file, "接收成功 包类型:%d 序号:%d %s", recv_buffer[1],recv_buffer[3],asctime(localtime(&(t = time(NULL)))));
+			fprintf(log_file, "接收ACK包成功  ACK序号:%d %s", recv_buffer[3]+(recv_buffer[2]<<8),asctime(localtime(&(t = time(NULL)))));
 			return 1;
 		}
 	}
