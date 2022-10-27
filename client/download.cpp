@@ -9,7 +9,6 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 	int block_num = 0;//传送序号
 	char data[DATA_SIZE];//读取文件数据
 	char recv_buffer[BUFFER_SIZE];//保存接收数据
-	BOOL recv_flag = FALSE;//传输是否完成
 	FILE* fp;
 	fp = fopen(filename, "w+");
 	if (fp == NULL) {
@@ -22,19 +21,16 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		//收到正确数据包
 		if (result >0) {
 			max_send = 0;//重置重传次数
-			if (recv_flag) {
-				printf("接收完毕\n");
-				return;
-			}
 			block_num = 0;
 			block_num += recv_buffer[2];
 			block_num = (block_num << 8) + recv_buffer[3];
-			data_size = fwrite(recv_buffer + 4, 1, result, fp);
+			data_size = fwrite(recv_buffer + 4, 1, result-4, fp);
 			printf("接收文件数据size:%d\n", data_size);
-			result = send_ACK(sock, serveraddr, addrlen, fp, buffer, data, data_size, block_num);
 			if (data_size < 512) {
-				recv_flag = TRUE;//传输完毕
+				printf("接收完毕\n");
+				return;
 			}
+			result = send_ACK(sock, serveraddr, addrlen, fp, buffer, data, data_size, block_num);
 		}
 		//超时或发送失败重传
 		else if (result == -1) {
