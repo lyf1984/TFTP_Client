@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<time.h>
+#include<conio.h>
 #include<WinSock2.h>
 #include<Windows.h>
 #pragma comment(lib,"Ws2_32.lib")

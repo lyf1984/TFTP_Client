@@ -1,10 +1,10 @@
 #include"head.h"
 FILE* log_file;//日志文件
 time_t t;//保存时间
+clock_t start, end;//记录传输时间
 int main() {
 	//初始化日志文件
 	log_file = fopen("log.txt", "w+");
-	printf("%s", asctime(localtime(&(t=time(NULL)))));
 	if (log_file == NULL) {
 		printf("创建日志文件失败！\n");
 		return 0;
@@ -33,7 +33,7 @@ int main() {
 	fprintf(log_file, "创建套接字 %s", asctime(localtime(&(t = time(NULL)))));
 	//服务端 ip和端口
 	sockaddr_in server_addr;
-	char serverip[20] = "10.12.181.168";
+	char serverip[20] = "10.12.180.203";
 	int serverport = 69;
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(serverport);
@@ -66,10 +66,23 @@ int main() {
 //	printf("读取文件名失败");
 //	return 0;
 //}
-
-	//upload(1, "test.txt", buffer, client_sock, server_addr, sizeof(sockaddr_in));
-	download(1, "aaaa.txt", buffer, client_sock, server_addr, sizeof(sockaddr_in));
-	
+	//主界面
+	int choice;
+	while (1) {
+		system("cls");
+		printf("[TFTP文件传输]\n1、上传文件\n2、下载文件\n3、结束程序");
+		printf("请选择功能:");
+		choice = getch();
+		system("cls");
+		if (choice == '1') {
+			printf("[上传文件]\n");
+			upload(1, "test.txt", buffer, client_sock, server_addr, sizeof(sockaddr_in));
+		}
+		if (choice == '2') {
+			printf("[下载文件]\n");
+			download(1, "aaaa.txt", buffer, client_sock, server_addr, sizeof(sockaddr_in));
+		}
+	}
 	fclose(log_file);
 }
 
