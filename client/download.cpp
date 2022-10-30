@@ -17,6 +17,8 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 	fp = fopen(filename, "w+");
 	if (fp == NULL) {
 		printf("打开文件失败\n");
+		printf("\n按任意键继续...");
+		result = getch();
 		return;
 	}
 	read_request(mode, filename, buffer, sock, addr, addrlen);
@@ -27,7 +29,9 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		}
 		if (end_flag) {
 			printf("接收完毕 speed:%.1fkb/s", recv_bytes / (1024 * (double)(end - start) / CLK_TCK));
-			result = getchar();
+			printf("\n按任意键继续...");
+			result = getch();
+			fclose(fp);
 			return;
 		}
 		result = receive_data(recv_buffer, sock, serveraddr, addrlen);
@@ -49,7 +53,9 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		else if (result == -1) {
 			max_send++;
 			if (max_send > MAX_RETRANSMISSION) {
-				printf("重传失败\n");
+				printf("重传次数过多");
+				printf("\n按任意键继续...");
+				result = getch();
 				fprintf(log_file, "ERROR:重传次数过多 %s", asctime(localtime(&(t = time(NULL)))));
 				return;
 			}
@@ -64,6 +70,9 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		}
 		//收到错误包
 		else {
+			printf("ERROR!错误码:%d %s", recv_buffer[3],recv_buffer + 4);
+			printf("\n按任意键继续...");
+			result = getch();
 			return;
 		}
 	}
@@ -91,11 +100,13 @@ int read_request(int mode, const char* filename, char* buffer, SOCKET sock, sock
 	}
 	result = sendto(sock, buffer, send_size, 0, (struct sockaddr*)&addr, addrlen);
 	if (result == SOCKET_ERROR) {
-		printf("发送读请求失败\n");
-		fprintf(log_file, "ERROR:发送读请求失败 错误码:%d %s", WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
+		printf("发送读请求失败");
+		printf("\n按任意键继续...");
+		result = getch();
+		fprintf(log_file, "ERROR:发送读请求失败	错误码:%d	%s", WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
 	}
 	else {
-		fprintf(log_file, "发送读请求成功send%dbytes %s", result,asctime(localtime(&(t = time(NULL)))));
+		fprintf(log_file, "发送读请求成功	send%dbytes	文件名:%s	%s", result,filename,asctime(localtime(&(t = time(NULL)))));
 	}
 	return result;
 }
@@ -114,23 +125,23 @@ int receive_data(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen)
 		select(sock + 1, &readfds, NULL, NULL, &tv);
 		result = recvfrom(sock, recv_buffer, BUFFER_SIZE, 0, (struct sockaddr*)&addr, (int*)&addrlen);
 		if (result > 0 && result < 4) {
-			printf("bad packet\n");
-			fprintf(log_file, "ERROR:接收包不正确 %s", asctime(localtime(&(t = time(NULL)))));
+			printf("bad packet");
+			printf("\n按任意键继续...");
+			result = getch();
+			fprintf(log_file, "ERROR:接收包不正确	%s", asctime(localtime(&(t = time(NULL)))));
 			return 0;
 		}
 		else if (result >= 4) {
 			if (recv_buffer[1] == ERROR_CODE) {
-				printf("ERROR!\n");
-				fprintf(log_file, "ERROR:接收到错误包 错误码:%d 错误信息%s %s", recv_buffer[3], recv_buffer + 4, asctime(localtime(&(t = time(NULL)))));
+				fprintf(log_file, "ERROR:接收到错误包	错误码:%d	错误信息%s	%s", recv_buffer[3], recv_buffer + 4, asctime(localtime(&(t = time(NULL)))));
 				return -2;
 			}
-			fprintf(log_file, "接收数据成功receive%dbytes 数据包序号:%d %s", result,recv_buffer[3]+(recv_buffer[2]>>8), asctime(localtime(&(t = time(NULL)))));
+			fprintf(log_file, "接收数据成功	receive%dbytes	数据包序号:%d	%s", result,recv_buffer[3]+(recv_buffer[2]>>8), asctime(localtime(&(t = time(NULL)))));
 			return result;
 		}
 	}
 	if (wait_time >= TIME_OUT) {
-		printf("接收等待超时\n");
-		fprintf(log_file, "ERROR:等待接收超时 %s", asctime(localtime(&(t = time(NULL)))));
+		fprintf(log_file, "ERROR:等待接收超时	%s", asctime(localtime(&(t = time(NULL)))));
 		return -1;
 	}
 }
@@ -144,12 +155,14 @@ int send_ACK(SOCKET sock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer,
 	buffer[++send_size] = (char)block_num;
 	result = sendto(sock, buffer, 4, 0, (struct sockaddr*)&addr, addrlen);
 	if (result == SOCKET_ERROR) {
-		printf("发送ACK失败\n");
-		fprintf(log_file, "ERROR:发送ACK包失败 ACK序号:%d 错误码:%d %s", block_num, WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
+		printf("发送ACK失败");
+		printf("\n按任意键继续...");
+		result = getch();
+		fprintf(log_file, "ERROR:发送ACK包失败	ACK序号:%d	错误码:%d	%s", block_num, WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
 		return -1;
 	}
 	else {
-		fprintf(log_file, "发送ACK包成功send%dbytes ACK包序号:%d %s", result,block_num, asctime(localtime(&(t = time(NULL)))));
+		fprintf(log_file, "发送ACK包成功	send%dbytes	ACK包序号:%d	%s", result,block_num, asctime(localtime(&(t = time(NULL)))));
 		return result;
 	}
 }

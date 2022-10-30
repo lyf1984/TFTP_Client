@@ -1,27 +1,131 @@
-启动Winsocket Sat Oct 29 13:10:49 2022
-创建套接字 Sat Oct 29 13:10:49 2022
-发送读请求成功send20bytes Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:1 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:1 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:2 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:2 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:3 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:3 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:4 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:4 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:5 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:5 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:6 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:6 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:7 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:7 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:8 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:8 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:9 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:9 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:10 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:10 Sat Oct 29 13:10:51 2022
-接收数据成功receive516bytes 数据包序号:11 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:11 Sat Oct 29 13:10:51 2022
-接收数据成功receive492bytes 数据包序号:12 Sat Oct 29 13:10:51 2022
-发送ACK包成功send4bytes ACK包序号:12 Sat Oct 29 13:10:51 2022
+启动Winsocket			Sun Oct 30 14:59:19 2022
+创建套接字			Sun Oct 30 14:59:19 2022
+发送写请求成功	send20bytes	文件名:test.txt	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:0	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:1	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:1	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:2	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:2	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:3	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:3	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:4	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:4	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:5	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:5	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:6	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:6	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:7	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:7	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:8	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:8	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:9	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:9	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:10	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:10	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:11	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:11	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:12	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:12	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:13	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:13	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:14	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:14	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:15	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:15	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:16	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:16	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:17	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:17	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:18	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:18	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:19	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:19	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:20	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:20	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:21	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:21	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:22	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:22	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:23	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:23	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:24	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:24	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:25	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:25	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:26	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:26	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:27	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:27	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:28	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:28	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:29	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:29	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:30	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:30	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:31	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:31	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:32	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:32	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:512bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send516bytes	数据包序号:33	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:33	Sun Oct 30 14:59:24 2022
+从test.txt文件读取	size:402bytes			Sun Oct 30 14:59:24 2022
+发送数据包成功	send406bytes	数据包序号:34	Sun Oct 30 14:59:24 2022
+接收ACK包成功	receive4bytes	ACK序号:34	Sun Oct 30 14:59:24 2022
+发送读请求成功	send17bytes	文件名:aaaa.txt	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:1	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:1	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:2	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:2	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:3	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:3	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:4	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:4	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:5	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:5	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:6	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:6	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:7	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:7	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:8	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:8	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:9	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:9	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:10	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:10	Sun Oct 30 14:59:31 2022
+接收数据成功	receive516bytes	数据包序号:11	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:11	Sun Oct 30 14:59:31 2022
+接收数据成功	receive492bytes	数据包序号:12	Sun Oct 30 14:59:31 2022
+发送ACK包成功	send4bytes	ACK包序号:12	Sun Oct 30 14:59:31 2022
