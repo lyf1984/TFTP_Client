@@ -33,14 +33,18 @@ int main() {
 	fprintf(log_file, "创建套接字			%s", asctime(localtime(&(t = time(NULL)))));
 	//服务端 ip和端口
 	sockaddr_in server_addr;
-	char serverip[20] = "10.12.180.43";
+	char serverip[20];
+	printf("请输入服务端地址:");
+	scanf("%s", serverip);
 	int serverport = 69;
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(serverport);
 	server_addr.sin_addr.S_un.S_addr = inet_addr(serverip);
 	//客户端ip和端口
 	sockaddr_in client_addr;
-	char clientip[20] = "10.12.181.1";
+	char clientip[20];
+	printf("请输入客户端地址:");
+	scanf("%s", clientip);
 	int clientport = 0;
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_port = htons(clientport);
@@ -58,7 +62,7 @@ int main() {
 	if (Result == SOCKET_ERROR)
 	{
 		// 绑定失败
-		printf("Client socket bind error!");
+		printf("绑定接口失败!");
 		printf("\n按任意键继续...");
 		Result = getch();
 		fprintf(log_file, "ERROR:无法绑定接口	错误码:%d	%s", WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
@@ -82,6 +86,7 @@ int main() {
 			printf("1、netascii\n2、octet\n请选择传输模式:");
 			mode = getch();
 			printf("\n");
+			printf("...上传中...\n");
 			upload(mode - 48, filename, buffer, client_sock, server_addr, sizeof(sockaddr_in));
 		}
 		if (choice == '2') {
@@ -93,6 +98,7 @@ int main() {
 			printf("1、netascii\n2、octet\n请选择传输模式:");
 			mode = getch();
 			printf("\n");
+			printf("...下载中...\n");
 			download(mode - 48, filename, buffer, client_sock, server_addr, sizeof(sockaddr_in));
 		}
 		if (choice == '3')

@@ -52,6 +52,7 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		//超时或发送失败重传
 		else if (result == -1) {
 			max_send++;
+			printf("...重传中...%d\n", max_send);
 			if (max_send > MAX_RETRANSMISSION) {
 				printf("重传次数过多");
 				printf("\n按任意键继续...");
@@ -64,7 +65,7 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 				send_data(sock, serveraddr, addrlen, fp, buffer, data, data_size, block_num);
 			}
 			else {
-				fprintf(log_file, "重传读请求 %s", asctime(localtime(&(t = time(NULL)))));
+				fprintf(log_file, "重传读请求					%s", asctime(localtime(&(t = time(NULL)))));
 				read_request(mode, filename, buffer, sock, addr, addrlen);
 			}
 		}
@@ -141,7 +142,7 @@ int receive_data(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen)
 		}
 	}
 	if (wait_time >= TIME_OUT) {
-		fprintf(log_file, "ERROR:等待接收超时	%s", asctime(localtime(&(t = time(NULL)))));
+		fprintf(log_file, "ERROR:等待接收超时					%s", asctime(localtime(&(t = time(NULL)))));
 		return -1;
 	}
 }

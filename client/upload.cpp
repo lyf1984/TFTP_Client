@@ -59,6 +59,7 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 		//超时或发送失败重传
 		else if (result == -1) {
 			max_send++;
+			printf("...重传中...%d\n", max_send);
 			if (max_send > MAX_RETRANSMISSION) {
 				printf("重传次数过多");
 				printf("\n按任意键继续...");
@@ -71,7 +72,7 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 				send_data(sock, serveraddr, addrlen, fp, buffer, data, data_size, block_num);
 			}
 			else {
-				fprintf(log_file, "重传写请求	%s", asctime(localtime(&(t = time(NULL)))));
+				fprintf(log_file, "重传写请求					%s", asctime(localtime(&(t = time(NULL)))));
 				write_request(mode, filename, buffer, sock, addr, addrlen);
 			}
 		}
@@ -148,7 +149,7 @@ int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) 
 		}
 	}
 	if (wait_time >= TIME_OUT) {
-		fprintf(log_file, "ERROR:等待接收超时	%s", asctime(localtime(&(t = time(NULL)))));
+		fprintf(log_file, "ERROR:等待接收超时					%s", asctime(localtime(&(t = time(NULL)))));
 		return -1;
 	}
 }
