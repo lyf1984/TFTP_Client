@@ -1,106 +1,279 @@
-启动Winsocket			Thu Nov  3 16:36:01 2022
-创建套接字			Thu Nov  3 16:36:01 2022
-发送写请求成功	send20bytes	文件名:test.txt	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:0	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:1	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:1	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:2	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:2	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:3	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:3	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:4	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:4	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:5	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:2	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:3	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:5	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:6	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:3	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:4	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:5	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:6	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:4	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:5	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:6	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:7	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:6	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:7	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:5	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:6	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:5	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:6	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:6	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:7	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:6	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:7	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:6	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:7	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:6	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:7	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:6	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:7	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:6	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:7	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:512bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send516bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
-从test.txt文件读取	size:402bytes			Thu Nov  3 16:36:09 2022
-发送数据包成功	send406bytes	数据包序号:8	Thu Nov  3 16:36:09 2022
-接收ACK包成功	receive4bytes	ACK序号:7	Thu Nov  3 16:36:09 2022
+启动Winsocket			Fri Nov  4 21:38:14 2022
+创建套接字			Fri Nov  4 21:38:14 2022
+发送读请求成功	send17bytes	文件名:aaaa.jpg	Fri Nov  4 21:38:21 2022
+ERROR:接收到错误包	错误码:4	错误信息Illegal TFTP operation	Fri Nov  4 21:38:22 2022
+发送读请求成功	send17bytes	文件名:aaaa.jpg	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:1	Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:1	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:1	Fri Nov  4 21:38:27 2022
+重传ACK包 ACK序号:1 Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:1	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:1	Fri Nov  4 21:38:27 2022
+重传ACK包 ACK序号:1 Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:1	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:1	Fri Nov  4 21:38:27 2022
+重传ACK包 ACK序号:1 Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:1	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:1	Fri Nov  4 21:38:27 2022
+重传ACK包 ACK序号:1 Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:1	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:2	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:27 2022
+重传ACK包 ACK序号:2 Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:2	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:3	Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:3	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:4	Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:4	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:5	Fri Nov  4 21:38:27 2022
+发送ACK包成功	send4bytes	ACK包序号:5	Fri Nov  4 21:38:27 2022
+接收数据成功	receive516bytes	数据包序号:6	Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:6	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:7	Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:7	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:8	Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:8	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:9	Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:9	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:10	Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:10	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:11	Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:11	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:28 2022
+重传ACK包 ACK序号:11 Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:11	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:12	Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:12	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:28 2022
+重传ACK包 ACK序号:12 Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:12	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:13	Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:28 2022
+重传ACK包 ACK序号:13 Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:28 2022
+重传ACK包 ACK序号:13 Fri Nov  4 21:38:28 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:28 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:29 2022
+重传ACK包 ACK序号:13 Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:29 2022
+重传ACK包 ACK序号:13 Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:29 2022
+重传ACK包 ACK序号:13 Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:29 2022
+重传ACK包 ACK序号:13 Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:29 2022
+重传ACK包 ACK序号:13 Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:13	Fri Nov  4 21:38:29 2022
+重传ACK包 ACK序号:13 Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:29 2022
+重传ACK包 ACK序号:13 Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:13	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:14	Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:14	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:15	Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:15	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:16	Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:16	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:17	Fri Nov  4 21:38:29 2022
+发送ACK包成功	send4bytes	ACK包序号:17	Fri Nov  4 21:38:29 2022
+接收数据成功	receive516bytes	数据包序号:17	Fri Nov  4 21:38:30 2022
+重传ACK包 ACK序号:17 Fri Nov  4 21:38:30 2022
+发送ACK包成功	send4bytes	ACK包序号:17	Fri Nov  4 21:38:30 2022
+接收数据成功	receive516bytes	数据包序号:18	Fri Nov  4 21:38:31 2022
+发送ACK包成功	send4bytes	ACK包序号:18	Fri Nov  4 21:38:31 2022
+接收数据成功	receive516bytes	数据包序号:19	Fri Nov  4 21:38:31 2022
+发送ACK包成功	send4bytes	ACK包序号:19	Fri Nov  4 21:38:31 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:31 2022
+重传ACK包 ACK序号:19 Fri Nov  4 21:38:31 2022
+发送ACK包成功	send4bytes	ACK包序号:19	Fri Nov  4 21:38:31 2022
+接收数据成功	receive516bytes	数据包序号:19	Fri Nov  4 21:38:32 2022
+重传ACK包 ACK序号:19 Fri Nov  4 21:38:32 2022
+发送ACK包成功	send4bytes	ACK包序号:19	Fri Nov  4 21:38:32 2022
+接收数据成功	receive516bytes	数据包序号:20	Fri Nov  4 21:38:32 2022
+发送ACK包成功	send4bytes	ACK包序号:20	Fri Nov  4 21:38:32 2022
+接收数据成功	receive516bytes	数据包序号:21	Fri Nov  4 21:38:33 2022
+发送ACK包成功	send4bytes	ACK包序号:21	Fri Nov  4 21:38:33 2022
+接收数据成功	receive516bytes	数据包序号:21	Fri Nov  4 21:38:34 2022
+重传ACK包 ACK序号:21 Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:21	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:22	Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:22	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:23	Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:23	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:24	Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:24	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:34 2022
+重传ACK包 ACK序号:24 Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:24	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:25	Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:25	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:34 2022
+重传ACK包 ACK序号:25 Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:25	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:26	Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:26	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:34 2022
+重传ACK包 ACK序号:26 Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:26	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:27	Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:27	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:34 2022
+重传ACK包 ACK序号:27 Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:27	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:28	Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:28	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:34 2022
+重传ACK包 ACK序号:28 Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:28	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:29	Fri Nov  4 21:38:34 2022
+发送ACK包成功	send4bytes	ACK包序号:29	Fri Nov  4 21:38:34 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:35 2022
+重传ACK包 ACK序号:29 Fri Nov  4 21:38:35 2022
+发送ACK包成功	send4bytes	ACK包序号:29	Fri Nov  4 21:38:35 2022
+接收数据成功	receive516bytes	数据包序号:30	Fri Nov  4 21:38:35 2022
+发送ACK包成功	send4bytes	ACK包序号:30	Fri Nov  4 21:38:35 2022
+接收数据成功	receive516bytes	数据包序号:2	Fri Nov  4 21:38:35 2022
+重传ACK包 ACK序号:30 Fri Nov  4 21:38:35 2022
+发送ACK包成功	send4bytes	ACK包序号:30	Fri Nov  4 21:38:35 2022
+接收数据成功	receive272bytes	数据包序号:31	Fri Nov  4 21:38:35 2022
+发送ACK包成功	send4bytes	ACK包序号:31	Fri Nov  4 21:38:35 2022
+发送写请求成功	send17bytes	文件名:test.jpg	Fri Nov  4 21:38:41 2022
+ERROR:等待接收超时					Fri Nov  4 21:38:41 2022
+重传写请求					Fri Nov  4 21:38:41 2022
+发送写请求成功	send17bytes	文件名:test.jpg	Fri Nov  4 21:38:41 2022
+接收ACK包成功	receive4bytes	ACK序号:0	Fri Nov  4 21:38:41 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:41 2022
+发送数据包成功	send516bytes	数据包序号:1	Fri Nov  4 21:38:41 2022
+接收ACK包成功	receive4bytes	ACK序号:1	Fri Nov  4 21:38:41 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:41 2022
+发送数据包成功	send516bytes	数据包序号:2	Fri Nov  4 21:38:41 2022
+接收ACK包成功	receive4bytes	ACK序号:1	Fri Nov  4 21:38:42 2022
+重传数据包	数据包序号:2	Fri Nov  4 21:38:42 2022
+发送数据包成功	send516bytes	数据包序号:2	Fri Nov  4 21:38:42 2022
+接收ACK包成功	receive4bytes	ACK序号:2	Fri Nov  4 21:38:43 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:43 2022
+发送数据包成功	send516bytes	数据包序号:3	Fri Nov  4 21:38:43 2022
+接收ACK包成功	receive4bytes	ACK序号:3	Fri Nov  4 21:38:43 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:43 2022
+发送数据包成功	send516bytes	数据包序号:4	Fri Nov  4 21:38:43 2022
+接收ACK包成功	receive4bytes	ACK序号:4	Fri Nov  4 21:38:43 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:43 2022
+发送数据包成功	send516bytes	数据包序号:5	Fri Nov  4 21:38:43 2022
+接收ACK包成功	receive4bytes	ACK序号:5	Fri Nov  4 21:38:43 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:43 2022
+发送数据包成功	send516bytes	数据包序号:6	Fri Nov  4 21:38:43 2022
+接收ACK包成功	receive4bytes	ACK序号:6	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:7	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:7	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:8	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:8	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:9	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:8	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:9	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:9	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:9	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:10	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:9	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:10	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:10	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:9	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:10	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:10	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:10	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:11	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:10	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:11	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:11	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:10	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:11	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:11	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:11	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:12	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:11	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:12	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:12	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:11	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:12	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:12	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:12	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:13	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:12	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:13	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:13	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:12	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:13	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:13	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:12	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:13	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:13	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:13	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:14	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:13	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:14	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:14	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:13	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:14	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:14	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:13	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:14	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:14	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:13	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:14	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:14	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:14	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:15	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:14	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:15	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:15	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:14	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:15	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:15	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:14	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:15	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:15	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:15	Fri Nov  4 21:38:44 2022
+从test.jpg文件读取	size:512bytes			Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:16	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:15	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:16	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:16	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:15	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:16	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:16	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:15	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:16	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:16	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:15	Fri Nov  4 21:38:44 2022
+重传数据包	数据包序号:16	Fri Nov  4 21:38:44 2022
+发送数据包成功	send516bytes	数据包序号:16	Fri Nov  4 21:38:44 2022
+接收ACK包成功	receive4bytes	ACK序号:16	Fri Nov  4 21:38:45 2022
+从test.jpg文件读取	size:511bytes			Fri Nov  4 21:38:45 2022
+发送数据包成功	send515bytes	数据包序号:17	Fri Nov  4 21:38:45 2022
+接收ACK包成功	receive4bytes	ACK序号:16	Fri Nov  4 21:38:45 2022
+重传数据包	数据包序号:17	Fri Nov  4 21:38:45 2022
+发送数据包成功	send515bytes	数据包序号:17	Fri Nov  4 21:38:45 2022
+接收ACK包成功	receive4bytes	ACK序号:16	Fri Nov  4 21:38:45 2022
+重传数据包	数据包序号:17	Fri Nov  4 21:38:45 2022
+发送数据包成功	send515bytes	数据包序号:17	Fri Nov  4 21:38:45 2022
+接收ACK包成功	receive4bytes	ACK序号:16	Fri Nov  4 21:38:45 2022
+重传数据包	数据包序号:17	Fri Nov  4 21:38:45 2022
+发送数据包成功	send515bytes	数据包序号:17	Fri Nov  4 21:38:45 2022
+接收ACK包成功	receive4bytes	ACK序号:17	Fri Nov  4 21:38:45 2022

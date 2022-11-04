@@ -13,8 +13,12 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 	char recv_buffer[BUFFER_SIZE];//保存接收数据
 	BOOL end_flag = FALSE;//接收是否完成
 	BOOL start_flag = TRUE;//接收是否开始
+	BOOL resend_flag = TRUE;
 	FILE* fp;
-	fp = fopen(filename, "w+");
+	if (mode == 1)
+		fp = fopen(filename, "w");
+	if (mode == 2)
+		fp = fopen(filename, "wb");
 	if (fp == NULL) {
 		printf("打开文件失败\n");
 		printf("\n按任意键继续...");
@@ -28,21 +32,24 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 			start_flag = FALSE;
 		}
 		if (end_flag) {
-			printf("接收完毕 speed:%.1fkb/s", recv_bytes / (1024 * (double)(end - start) / CLK_TCK));
+			printf("接收完毕 传输大小:%dbytes speed:%.1fkb/s", recv_bytes, recv_bytes / (1024 * (double)(end - start) / CLK_TCK));
 			printf("\n按任意键继续...");
 			result = getch();
 			fclose(fp);
 			return;
 		}
 		result = receive_data(recv_buffer, sock, serveraddr, addrlen);
-		//收到正确数据包
-		if (result >0) {
-			recv_bytes += result;
+		if (result > 0) {
 			max_send = 0;//重置重传次数
-			block_num = 0;
-			block_num += recv_buffer[2];
-			block_num = (block_num << 8) + recv_buffer[3];
-			data_size = fwrite(recv_buffer + 4, 1, result-4, fp);
+			if (block_num != ((recv_buffer[2] << 8) + recv_buffer[3] - 1))
+				result = -1;
+		}
+		//收到正确数据包
+		if (result > 0) {
+			recv_bytes += result - 4;
+			max_send = 0;//重置重传次数
+			block_num++;
+			data_size = fwrite(recv_buffer + 4, 1, result - 4, fp);
 			if (data_size < 512) {
 				end_flag = TRUE;
 				end = clock();
@@ -52,7 +59,10 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		//超时或发送失败重传
 		else if (result == -1) {
 			max_send++;
-			printf("...重传中...%d\n", max_send);
+			if (resend_flag) {
+				printf("...重传中...\n");
+				resend_flag = false;
+			}
 			if (max_send > MAX_RETRANSMISSION) {
 				printf("重传次数过多");
 				printf("\n按任意键继续...");
@@ -62,7 +72,7 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 			}
 			if (block_num > 0) {
 				fprintf(log_file, "重传ACK包 ACK序号:%d %s", block_num, asctime(localtime(&(t = time(NULL)))));
-				send_data(sock, serveraddr, addrlen, fp, buffer, data, data_size, block_num);
+				send_ACK(sock, serveraddr, addrlen, fp, buffer, data, data_size, block_num);
 			}
 			else {
 				fprintf(log_file, "重传读请求					%s", asctime(localtime(&(t = time(NULL)))));
@@ -71,7 +81,7 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		}
 		//收到错误包
 		else {
-			printf("ERROR!错误码:%d %s", recv_buffer[3],recv_buffer + 4);
+			printf("ERROR!错误码:%d %s", recv_buffer[3], recv_buffer + 4);
 			printf("\n按任意键继续...");
 			result = getch();
 			return;
@@ -107,7 +117,7 @@ int read_request(int mode, const char* filename, char* buffer, SOCKET sock, sock
 		fprintf(log_file, "ERROR:发送读请求失败	错误码:%d	%s", WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
 	}
 	else {
-		fprintf(log_file, "发送读请求成功	send%dbytes	文件名:%s	%s", result,filename,asctime(localtime(&(t = time(NULL)))));
+		fprintf(log_file, "发送读请求成功	send%dbytes	文件名:%s	%s", result, filename, asctime(localtime(&(t = time(NULL)))));
 	}
 	return result;
 }
@@ -121,7 +131,7 @@ int receive_data(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen)
 	for (wait_time = 0; wait_time < TIME_OUT; wait_time++) {
 		FD_ZERO(&readfds);
 		FD_SET(sock, &readfds);
-		tv.tv_sec = 2;
+		tv.tv_sec = 1;
 		tv.tv_usec = 0;
 		select(sock + 1, &readfds, NULL, NULL, &tv);
 		result = recvfrom(sock, recv_buffer, BUFFER_SIZE, 0, (struct sockaddr*)&addr, (int*)&addrlen);
@@ -137,7 +147,7 @@ int receive_data(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen)
 				fprintf(log_file, "ERROR:接收到错误包	错误码:%d	错误信息%s	%s", recv_buffer[3], recv_buffer + 4, asctime(localtime(&(t = time(NULL)))));
 				return -2;
 			}
-			fprintf(log_file, "接收数据成功	receive%dbytes	数据包序号:%d	%s", result,recv_buffer[3]+(recv_buffer[2]>>8), asctime(localtime(&(t = time(NULL)))));
+			fprintf(log_file, "接收数据成功	receive%dbytes	数据包序号:%d	%s", result, recv_buffer[3] + (recv_buffer[2] >> 8), asctime(localtime(&(t = time(NULL)))));
 			return result;
 		}
 	}
@@ -163,7 +173,7 @@ int send_ACK(SOCKET sock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer,
 		return -1;
 	}
 	else {
-		fprintf(log_file, "发送ACK包成功	send%dbytes	ACK包序号:%d	%s", result,block_num, asctime(localtime(&(t = time(NULL)))));
+		fprintf(log_file, "发送ACK包成功	send%dbytes	ACK包序号:%d	%s", result, block_num, asctime(localtime(&(t = time(NULL)))));
 		return result;
 	}
 }

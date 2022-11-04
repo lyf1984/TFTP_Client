@@ -26,7 +26,7 @@
 #define BUFFER_SIZE 1024
 #define DATA_SIZE 512
 #define TIME_OUT 2
-#define MAX_RETRANSMISSION 3
+#define MAX_RETRANSMISSION 5
 //upload
 int write_request(int mode, const char* filename, char* buffer, SOCKET serversock, sockaddr_in addr, int addrLen);
 int receive_ACK(char* buffer, SOCKET serversock, sockaddr_in &addr, int addrlen);
