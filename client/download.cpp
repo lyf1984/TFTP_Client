@@ -2,6 +2,7 @@
 extern FILE* log_file;
 extern time_t t;
 extern clock_t start, end;
+//下载
 void download(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
 	int recv_bytes = 0;//记录接收大小
 	sockaddr_in serveraddr = { 0 };
@@ -13,7 +14,6 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 	char recv_buffer[BUFFER_SIZE];//保存接收数据
 	BOOL end_flag = FALSE;//接收是否完成
 	BOOL start_flag = TRUE;//接收是否开始
-	BOOL resend_flag = TRUE;
 	FILE* fp;
 	if (mode == 1)
 		fp = fopen(filename, "w");
@@ -25,9 +25,11 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		result = getch();
 		return;
 	}
+	//发送读请求
 	read_request(mode, filename, buffer, sock, addr, addrlen);
 	while (1) {
 		if (start_flag) {
+			//记录开始时间
 			start = clock();
 			start_flag = FALSE;
 		}
@@ -38,6 +40,7 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 			fclose(fp);
 			return;
 		}
+		//接收数据包
 		result = receive_data(recv_buffer, sock, serveraddr, addrlen);
 		if (result > 0) {
 			max_send = 0;//重置重传次数
@@ -46,11 +49,12 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		}
 		//收到正确数据包
 		if (result > 0) {
-			recv_bytes += result - 4;
+			recv_bytes += result - 4;//记录传输数据大小
 			max_send = 0;//重置重传次数
 			block_num++;
 			data_size = fwrite(recv_buffer + 4, 1, result - 4, fp);
 			if (data_size < 512) {
+				//传输结束
 				end_flag = TRUE;
 				end = clock();
 			}
@@ -58,11 +62,8 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		}
 		//超时或发送失败重传
 		else if (result == -1) {
-			max_send++;
-			if (resend_flag) {
-				printf("...重传中...\n");
-				resend_flag = false;
-			}
+			max_send++;//重传次数加一
+			printf("...重传中...%d\n", max_send);
 			if (max_send > MAX_RETRANSMISSION) {
 				printf("重传次数过多");
 				printf("\n按任意键继续...");
@@ -128,6 +129,7 @@ int receive_data(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen)
 	fd_set readfds;
 	int result;
 	int wait_time;
+	//设置时限，超过时限则视为接收失败
 	for (wait_time = 0; wait_time < TIME_OUT; wait_time++) {
 		FD_ZERO(&readfds);
 		FD_SET(sock, &readfds);
@@ -161,7 +163,9 @@ int send_ACK(SOCKET sock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer,
 	int result;
 	int send_size = 0;
 	memset(buffer, 0, sizeof(buffer));
+	//填充包类型
 	buffer[++send_size] = ACK;
+	//填充包序号
 	buffer[++send_size] = (char)(block_num >> 8);
 	buffer[++send_size] = (char)block_num;
 	result = sendto(sock, buffer, 4, 0, (struct sockaddr*)&addr, addrlen);

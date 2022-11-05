@@ -18,7 +18,7 @@ int main() {
 	if (Result)
 	{
 		printf("WSAStartup failed with error: %d", Result);
-		fprintf(log_file, "ERROR无法启动Winsocket	错误码:%d	%s", WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
+		fprintf(log_file, "ERROR无:法启动Winsocket	错误码:%d	%s", WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
 		return 0;
 	}
 	fprintf(log_file, "启动Winsocket			%s", asctime(localtime(&(t = time(NULL)))));

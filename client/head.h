@@ -25,6 +25,7 @@
 //数据大小
 #define BUFFER_SIZE 1024
 #define DATA_SIZE 512
+//时限
 #define TIME_OUT 2
 #define MAX_RETRANSMISSION 5
 //upload

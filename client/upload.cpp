@@ -2,8 +2,9 @@
 extern FILE* log_file;
 extern time_t t;
 extern clock_t start, end;
+//上传
 void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
-	int send_bytes = 0;//记录总传输大小
+	int send_bytes = 0;//记录总传输数据大小
 	sockaddr_in serveraddr = { 0 };
 	int max_send = 0;//超时重传次数
 	int result;//记录返回值
@@ -13,7 +14,6 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 	char recv_buffer[BUFFER_SIZE];//保存接收数据
 	BOOL end_flag = FALSE;//传输是否完成
 	BOOL start_flag = TRUE;//传输是否开始
-	BOOL resend_flag = TRUE;
 	FILE* fp;
 	if (mode == 1)
 		fp = fopen(filename, "r");
@@ -25,9 +25,10 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 		result = getch();
 		return;
 	}
+	//发送写请求
 	write_request(mode, filename, buffer, sock, addr, addrlen);
-	//start = clock();
 	while (1) {
+		//接收ACK
 		result = receive_ACK(recv_buffer, sock, serveraddr, addrlen);
 		if (result != block_num)
 			result = -1;
@@ -45,13 +46,14 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 			//发送ACK序号的下一个序号
 			block_num = result;
 			memset(data, 0, DATA_SIZE);
-			data_size = fread(data, 1, DATA_SIZE, fp);
+			data_size = fread(data, 1, DATA_SIZE, fp);//读取文件数据
 			fprintf(log_file, "从%s文件读取	size:%dbytes			%s", filename, data_size, asctime(localtime(&(t = time(NULL)))));
 			//记录开始传输时间
 			if (start_flag) {
 				start = clock();
 				start_flag = FALSE;
 			}
+			//发送数据包
 			result = send_data(sock, serveraddr, addrlen, fp, buffer, data, data_size, ++block_num);
 			send_bytes += data_size;
 			if (data_size < 512 && result != -1) {
@@ -61,12 +63,10 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 			}
 		}
 		//超时或发送失败重传
-		else if (result == -1||result == -2) {
-			max_send++;
-			if (resend_flag) {
-				printf("...重传中...\n");
-				resend_flag = false;
-			}
+		else if (result == -1 || result == -2) {
+			max_send++;//重传次数加一
+			printf("...重传中...%d\n", max_send);
+			//重传达到上限
 			if (max_send > MAX_RETRANSMISSION) {
 				printf("重传次数过多");
 				printf("\n按任意键继续...");
@@ -84,7 +84,7 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 			}
 		}
 		//收到错误包
-		else if(result == -3){
+		else if (result == -3) {
 			printf("ERROR!错误码:%d %s", recv_buffer[3], recv_buffer + 4);
 			printf("\n按任意键继续...");
 			result = getch();
@@ -132,6 +132,7 @@ int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) 
 	fd_set readfds;
 	int result;
 	int wait_time;
+	//设置时限，超过时限则视为接收失败
 	for (wait_time = 0; wait_time < TIME_OUT; wait_time++) {
 		FD_ZERO(&readfds);
 		FD_SET(sock, &readfds);
@@ -152,7 +153,7 @@ int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) 
 				return -3;
 			}
 			fprintf(log_file, "接收ACK包成功	receive%dbytes	ACK序号:%d	%s", result, recv_buffer[3] + (recv_buffer[2] << 8), asctime(localtime(&(t = time(NULL)))));
-			return recv_buffer[3] + (recv_buffer[2] << 8);
+			return recv_buffer[3] + (recv_buffer[2] << 8);//返回序号
 		}
 	}
 	if (wait_time >= TIME_OUT) {
@@ -165,10 +166,13 @@ int send_data(SOCKET sock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer
 	int result;
 	int send_size = 0;
 	memset(buffer, 0, sizeof(buffer));
+	//填充包类型
 	buffer[++send_size] = DATA;
+	//填充序号
 	buffer[++send_size] = (char)(block_num >> 8);
 	buffer[++send_size] = (char)block_num;
 	send_size++;
+	//填充数据
 	memcpy(buffer + send_size, data, data_size);
 	send_size += data_size;
 	buffer[send_size] = 0;
