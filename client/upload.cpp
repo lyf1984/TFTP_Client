@@ -2,6 +2,7 @@
 extern FILE* log_file;
 extern time_t t;
 extern clock_t start, end;
+
 //上传
 void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
 	int send_bytes = 0;//记录总传输数据大小
@@ -92,6 +93,7 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 		}
 	}
 }
+
 //发送写请求
 int write_request(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
 	int send_size = 0;//请求包数据大小
@@ -125,6 +127,7 @@ int write_request(int mode, const char* filename, char* buffer, SOCKET sock, soc
 	}
 	return result;
 }
+
 //接收ACK包
 int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) {
 	memset(recv_buffer, 0, sizeof(recv_buffer));
@@ -161,6 +164,7 @@ int receive_ACK(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) 
 		return -1;
 	}
 }
+
 //发送文件数据
 int send_data(SOCKET sock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer, char* data, int data_size, unsigned short block_num) {
 	int result;

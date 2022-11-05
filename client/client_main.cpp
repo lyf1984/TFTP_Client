@@ -12,6 +12,7 @@ int main() {
 	char filename[128];//文件名
 	char buffer[BUFFER_SIZE];//保存发送的数据
 	int Result;//保存返回值
+
 	//启动Winsocket
 	WSADATA wsaData;
 	Result = WSAStartup(0x0101, &wsaData);
@@ -22,6 +23,7 @@ int main() {
 		return 0;
 	}
 	fprintf(log_file, "启动Winsocket			%s", asctime(localtime(&(t = time(NULL)))));
+
 	//创建套接字
 	SOCKET client_sock;
 	client_sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -31,6 +33,7 @@ int main() {
 		return 0;
 	}
 	fprintf(log_file, "创建套接字			%s", asctime(localtime(&(t = time(NULL)))));
+
 	//服务端 ip和端口
 	sockaddr_in server_addr;
 	char serverip[20];
@@ -40,6 +43,7 @@ int main() {
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(serverport);
 	server_addr.sin_addr.S_un.S_addr = inet_addr(serverip);
+
 	//客户端ip和端口
 	sockaddr_in client_addr;
 	char clientip[20];
@@ -49,6 +53,7 @@ int main() {
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_port = htons(clientport);
 	client_addr.sin_addr.S_un.S_addr = inet_addr(clientip);
+
 	//设置为非阻塞模式
 	unsigned long Opt = 1;
 	Result = ioctlsocket(client_sock, FIONBIO, &Opt);
@@ -57,6 +62,7 @@ int main() {
 		fprintf(log_file, "ERROR:无法设置非阻塞模式	错误码:%d	%s", WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
 		return 0;
 	}
+
 	//绑定客户端接口
 	Result = bind(client_sock, (LPSOCKADDR)&client_addr, sizeof(client_addr));
 	if (Result == SOCKET_ERROR)
@@ -68,6 +74,7 @@ int main() {
 		fprintf(log_file, "ERROR:无法绑定接口	错误码:%d	%s", WSAGetLastError(), asctime(localtime(&(t = time(NULL)))));
 		return 0;
 	}
+
 	//主界面
 	char choice;
 	char mode;

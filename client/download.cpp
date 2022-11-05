@@ -2,6 +2,7 @@
 extern FILE* log_file;
 extern time_t t;
 extern clock_t start, end;
+
 //下载
 void download(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
 	int recv_bytes = 0;//记录接收大小
@@ -89,6 +90,7 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		}
 	}
 }
+
 //发送读请求
 int read_request(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_in addr, int addrlen) {
 	int send_size = 0;//请求包数据大小
@@ -122,6 +124,7 @@ int read_request(int mode, const char* filename, char* buffer, SOCKET sock, sock
 	}
 	return result;
 }
+
 //接收数据
 int receive_data(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen) {
 	memset(recv_buffer, 0, sizeof(recv_buffer));
@@ -158,6 +161,7 @@ int receive_data(char* recv_buffer, SOCKET sock, sockaddr_in& addr, int addrlen)
 		return -1;
 	}
 }
+
 //发送ACK包
 int send_ACK(SOCKET sock, sockaddr_in addr, int addrlen, FILE* fp, char* buffer, char* data, int data_size, unsigned short block_num) {
 	int result;
