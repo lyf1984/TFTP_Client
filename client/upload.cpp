@@ -31,6 +31,7 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 	while (1) {
 		//接收ACK
 		result = receive_ACK(recv_buffer, sock, serveraddr, addrlen);
+		//序号不连续，重传
 		if (result != block_num)
 			result = -1;
 		//收到有效ACK包
@@ -56,9 +57,9 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 			}
 			//发送数据包
 			result = send_data(sock, serveraddr, addrlen, fp, buffer, data, data_size, ++block_num);
-			send_bytes += data_size;
+			send_bytes += data_size;//记录传输大小
 			if (data_size < 512 && result != -1) {
-				//记录结束传输时间
+				//记录传输结束时间
 				end = clock();
 				end_flag = TRUE;//传输完毕
 			}
@@ -75,10 +76,12 @@ void upload(int mode, const char* filename, char* buffer, SOCKET sock, sockaddr_
 				fprintf(log_file, "ERROR:重传次数过多	%s", asctime(localtime(&(t = time(NULL)))));
 				return;
 			}
+			//重传数据
 			if (block_num > 0) {
 				fprintf(log_file, "重传数据包	数据包序号:%d	%s", block_num, asctime(localtime(&(t = time(NULL)))));
 				send_data(sock, serveraddr, addrlen, fp, buffer, data, data_size, block_num);
 			}
+			//重传写请求
 			else {
 				fprintf(log_file, "重传写请求					%s", asctime(localtime(&(t = time(NULL)))));
 				write_request(mode, filename, buffer, sock, addr, addrlen);

@@ -43,12 +43,14 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 		}
 		//接收数据包
 		result = receive_data(recv_buffer, sock, serveraddr, addrlen);
+		//收到数据包，判断序号是否连续
 		if (result > 0) {
 			max_send = 0;//重置重传次数
+			//序号不连续，重传
 			if (block_num != ((recv_buffer[2] << 8) + recv_buffer[3] - 1))
 				result = -1;
 		}
-		//收到正确数据包
+		//收到序号正确数据包
 		if (result > 0) {
 			recv_bytes += result - 4;//记录传输数据大小
 			max_send = 0;//重置重传次数
@@ -72,10 +74,12 @@ void download(int mode, const char* filename, char* buffer, SOCKET sock, sockadd
 				fprintf(log_file, "ERROR:重传次数过多 %s", asctime(localtime(&(t = time(NULL)))));
 				return;
 			}
+			//重传ACK
 			if (block_num > 0) {
 				fprintf(log_file, "重传ACK包 ACK序号:%d %s", block_num, asctime(localtime(&(t = time(NULL)))));
 				send_ACK(sock, serveraddr, addrlen, fp, buffer, data, data_size, block_num);
 			}
+			//重传读请求
 			else {
 				fprintf(log_file, "重传读请求					%s", asctime(localtime(&(t = time(NULL)))));
 				read_request(mode, filename, buffer, sock, addr, addrlen);
